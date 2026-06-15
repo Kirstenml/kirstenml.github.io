@@ -124,6 +124,86 @@
       text-decoration: underline;
     }
 
+
+    .bibtex-button {
+      border: none;
+      background: none;
+      color: var(--accent);
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 0;
+      margin-right: 12px;
+    }
+
+    .bibtex-button:hover {
+      text-decoration: underline;
+    }
+
+    .bibtex-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(0, 0, 0, 0.35);
+    }
+
+    .bibtex-modal.is-open {
+      display: flex;
+    }
+
+    .bibtex-box {
+      width: min(720px, 100%);
+      max-height: 80vh;
+      overflow: auto;
+      padding: 24px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.18);
+    }
+
+    .bibtex-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .bibtex-header h2 {
+      margin: 0;
+    }
+
+    .bibtex-close {
+      border: none;
+      background: transparent;
+      font-size: 1.8rem;
+      line-height: 1;
+      cursor: pointer;
+      color: var(--muted);
+    }
+
+    .bibtex-close:hover {
+      color: var(--text);
+    }
+
+    .bibtex-content {
+      margin: 0;
+      padding: 18px;
+      overflow-x: auto;
+      white-space: pre;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      background: #f7f7f7;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+
     footer {
       margin-top: 48px;
       text-align: center;
@@ -207,6 +287,7 @@
         <div class="publication-links">
           <a href="https://link.springer.com/article/10.1007/s10618-026-01200-3" target="_blank" rel="noopener noreferrer">Publisher</a>
           <a href="https://arxiv.org/abs/2509.18962" target="_blank" rel="noopener noreferrer">arXiv</a>
+          <button type="button" class="bibtex-button" data-bibtex-target="bibtex-lift">BibTeX</button>
         </div>
       </article>
 
@@ -222,6 +303,7 @@
         </p>
 		<div class="publication-links">
           <a href="https://link.springer.com/chapter/10.1007/978-3-032-19105-2_30" target="_blank" rel="noopener noreferrer">Publisher</a>
+          <button type="button" class="bibtex-button" data-bibtex-target="bibtex-pruning">BibTeX</button>
         </div>
       </article>
     </section>
@@ -241,6 +323,7 @@
         </p>
         <div class="publication-links">
           <a href="https://link.springer.com/article/10.1007/s10994-025-06906-x" target="_blank" rel="noopener noreferrer">Publisher</a>
+          <button type="button" class="bibtex-button" data-bibtex-target="bibtex-adaptive-trees">BibTeX</button>
         </div>
       </article>
 
@@ -255,10 +338,113 @@
           Discovery Science, pp. 167–182, Springer, 2025.
         </p>
         <div class="publication-links">
+		  <a href="https://link.springer.com/chapter/10.1007/978-3-031-78977-9_11" target="_blank" rel="noopener noreferrer">Publisher</a>
           <a href="https://arxiv.org/abs/2411.04812" target="_blank" rel="noopener noreferrer">arXiv</a>
+          <button type="button" class="bibtex-button" data-bibtex-target="bibtex-soft-hoeffding">BibTeX</button>
         </div>
       </article>
     </section>
+
+
+    <div class="bibtex-modal" id="bibtex-modal" aria-hidden="true">
+      <div class="bibtex-box" role="dialog" aria-modal="true" aria-labelledby="bibtex-title">
+        <div class="bibtex-header">
+          <h2 id="bibtex-title">BibTeX</h2>
+          <button type="button" class="bibtex-close" aria-label="Close BibTeX">&times;</button>
+        </div>
+        <pre class="bibtex-content" id="bibtex-content"></pre>
+      </div>
+    </div>
+
+    <template id="bibtex-soft-hoeffding">@InProceedings{10.1007/978-3-031-78977-9_11,
+    author      =   "K{\"o}bschall, Kirsten and Hartung, Lisa and Kramer, Stefan",
+    title       =   "Soft Hoeffding Tree: A Transparent and Differentiable Model on Data Streams",
+    booktitle   =   "Discovery Science",
+    year        =   "2025",
+    publisher   =   "Springer Nature Switzerland",
+    address     =   "Cham",
+    pages       =   "167--182",
+    isbn        =   "978-3-031-78977-9"
+}</template>
+
+    <template id="bibtex-adaptive-trees">@article{10.1007/s10994-025-06906-x,
+  title         =   "Adaptive differentiable trees for transparent learning on data streams",
+  author        =   "K{\"o}bschall, Kirsten and Hartung, Lisa and Kramer, Stefan",
+  journal       =   "Machine Learning",
+  publisher     =   "Springer Science and Business Media LLC",
+  doi           =   "10.1007/s10994-025-06906-x",
+  volume        =   114,
+  number        =   11,
+  year          =   2025
+}</template>
+
+    <template id="bibtex-lift">@article{koebschall2026liftcangreenonline,
+  author  = {K{\"o}bschall, Kirsten and Buschj{\"a}ger, Sebastian and Fischer, Raphael and Hartung, Lisa and Kramer, Stefan},
+  title   = {Lift what you can: green online learning with heterogeneous ensembles},
+  journal = {Data Mining and Knowledge Discovery},
+  year    = {2026},
+  volume  = {40},
+  number  = {3},
+  eid     = {32},
+  doi     = {10.1007/s10618-026-01200-3},
+  issn    = {1573-756X},
+}</template>
+
+    <template id="bibtex-pruning">@InProceedings{10.1007/978-3-032-19105-2_30,
+author="H{\"a}ndler, Kevin
+and K{\"o}bschall, Kirsten
+and Cerrato, Mattia
+and Kramer, Stefan",
+title="Transparent and Adaptive Pruning of Hoeffding Trees",
+booktitle="Machine Learning and Principles and Practice of Knowledge Discovery in Databases",
+year="2026",
+publisher="Springer Nature Switzerland",
+address="Cham",
+pages="428--441",
+isbn="978-3-032-19105-2"
+}</template>
+
+    <script>
+      const modal = document.getElementById("bibtex-modal");
+      const bibtexContent = document.getElementById("bibtex-content");
+      const closeButton = document.querySelector(".bibtex-close");
+
+      function openBibTeX(templateId) {
+        const template = document.getElementById(templateId);
+        if (!template) return;
+
+        bibtexContent.textContent = template.innerHTML.trim();
+        modal.classList.add("is-open");
+        modal.setAttribute("aria-hidden", "false");
+        closeButton.focus();
+      }
+
+      function closeBibTeX() {
+        modal.classList.remove("is-open");
+        modal.setAttribute("aria-hidden", "true");
+        bibtexContent.textContent = "";
+      }
+
+      document.querySelectorAll(".bibtex-button").forEach((button) => {
+        button.addEventListener("click", () => {
+          openBibTeX(button.dataset.bibtexTarget);
+        });
+      });
+
+      closeButton.addEventListener("click", closeBibTeX);
+
+      modal.addEventListener("click", (event) => {
+        if (event.target === modal) {
+          closeBibTeX();
+        }
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && modal.classList.contains("is-open")) {
+          closeBibTeX();
+        }
+      });
+    </script>
 
     <footer>
       <div class="footer-links">
