@@ -191,6 +191,37 @@
       color: var(--text);
     }
 
+    .bibtex-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .bibtex-copy {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: #f7f7f7;
+      color: var(--text);
+      cursor: pointer;
+      font-size: 1.05rem;
+      line-height: 1;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .bibtex-copy:hover {
+      background: #eeeeee;
+      transform: translateY(-1px);
+    }
+
+    .bibtex-copy.copied {
+      color: var(--accent);
+    }
+
     .bibtex-content {
       margin: 0;
       padding: 18px;
@@ -350,7 +381,10 @@
       <div class="bibtex-box" role="dialog" aria-modal="true" aria-labelledby="bibtex-title">
         <div class="bibtex-header">
           <h2 id="bibtex-title">BibTeX</h2>
-          <button type="button" class="bibtex-close" aria-label="Close BibTeX">&times;</button>
+          <div class="bibtex-actions">
+            <button type="button" class="bibtex-copy" aria-label="Copy BibTeX" title="Copy BibTeX">⧉</button>
+            <button type="button" class="bibtex-close" aria-label="Close BibTeX">&times;</button>
+          </div>
         </div>
         <pre class="bibtex-content" id="bibtex-content"></pre>
       </div>
@@ -408,12 +442,15 @@ isbn="978-3-032-19105-2"
       const modal = document.getElementById("bibtex-modal");
       const bibtexContent = document.getElementById("bibtex-content");
       const closeButton = document.querySelector(".bibtex-close");
+      const copyButton = document.querySelector(".bibtex-copy");
 
       function openBibTeX(templateId) {
         const template = document.getElementById(templateId);
         if (!template) return;
 
         bibtexContent.textContent = template.innerHTML.trim();
+        copyButton.textContent = "⧉";
+        copyButton.classList.remove("copied");
         modal.classList.add("is-open");
         modal.setAttribute("aria-hidden", "false");
         closeButton.focus();
@@ -423,6 +460,32 @@ isbn="978-3-032-19105-2"
         modal.classList.remove("is-open");
         modal.setAttribute("aria-hidden", "true");
         bibtexContent.textContent = "";
+        copyButton.textContent = "⧉";
+        copyButton.classList.remove("copied");
+      }
+
+      async function copyBibTeX() {
+        const text = bibtexContent.textContent;
+        if (!text) return;
+
+        try {
+          await navigator.clipboard.writeText(text);
+        } catch (error) {
+          const temporaryTextArea = document.createElement("textarea");
+          temporaryTextArea.value = text;
+          document.body.appendChild(temporaryTextArea);
+          temporaryTextArea.select();
+          document.execCommand("copy");
+          document.body.removeChild(temporaryTextArea);
+        }
+
+        copyButton.textContent = "✓";
+        copyButton.classList.add("copied");
+
+        window.setTimeout(() => {
+          copyButton.textContent = "⧉";
+          copyButton.classList.remove("copied");
+        }, 1400);
       }
 
       document.querySelectorAll(".bibtex-button").forEach((button) => {
@@ -432,6 +495,7 @@ isbn="978-3-032-19105-2"
       });
 
       closeButton.addEventListener("click", closeBibTeX);
+      copyButton.addEventListener("click", copyBibTeX);
 
       modal.addEventListener("click", (event) => {
         if (event.target === modal) {
