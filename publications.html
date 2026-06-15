@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Publications | Kirsten Köbschall</title>
+
+  <style>
+    :root {
+      --text: #222;
+      --muted: #666;
+      --accent: #2457a6;
+      --background: #f6efe7;
+      --card: #ffffff;
+      --border: #e3e6ee;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--background);
+    }
+
+    .page {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    .menu {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      margin-bottom: 32px;
+      padding: 14px 24px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.03);
+    }
+
+    .menu a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .menu a:hover {
+      text-decoration: underline;
+    }
+
+    header,
+    section {
+      margin-bottom: 32px;
+      padding: 32px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.03);
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.1;
+    }
+
+    h2 {
+      margin-top: 0;
+      margin-bottom: 24px;
+      color: var(--accent);
+      font-size: 1.5rem;
+    }
+
+    .subtitle {
+      margin: 0;
+      font-size: 1.15rem;
+      color: var(--muted);
+    }
+
+    .publication {
+      margin-bottom: 24px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .publication:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .publication-title {
+      margin: 0 0 6px;
+      font-weight: 700;
+      font-size: 1.05rem;
+    }
+
+    .publication-authors,
+    .publication-venue {
+      margin: 4px 0;
+      color: var(--muted);
+    }
+
+    .publication-links {
+      margin-top: 8px;
+    }
+
+    .publication-links a {
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: none;
+      margin-right: 12px;
+    }
+
+    .publication-links a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      margin-top: 48px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 22px;
+      margin-bottom: 14px;
+    }
+
+    .footer-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      opacity: 0.75;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      opacity: 1;
+      transform: translateY(-2px);
+    }
+
+    .footer-links img {
+      width: 28px;
+      height: 28px;
+    }
+
+    .email-icon {
+      font-size: 30px;
+      line-height: 1;
+      color: #222;
+    }
+
+    @media (max-width: 700px) {
+      .menu {
+        gap: 18px;
+        flex-wrap: wrap;
+      }
+
+      header,
+      section {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <nav class="menu">
+      <a href="index.html">Home</a>
+      <a href="publications.html">Publications</a>
+    </nav>
+
+    <header>
+      <h1>Publications</h1>
+      <p class="subtitle">Scientific publications by Kirsten Köbschall.</p>
+    </header>
+
+    <section>
+      <h2>2026</h2>
+
+      <article class="publication">
+        <p class="publication-title">
+          Lift what you can: green online learning with heterogeneous ensembles
+        </p>
+        <p class="publication-authors">
+          Kirsten Köbschall, Sebastian Buschjäger, Raphael Fischer, Lisa Hartung, Stefan Kramer
+        </p>
+        <p class="publication-venue">
+          Data Mining and Knowledge Discovery, 40(3), 2026.
+        </p>
+        <div class="publication-links">
+          <a href="https://link.springer.com/article/10.1007/s10618-026-01200-3" target="_blank" rel="noopener noreferrer">Publisher</a>
+          <a href="https://arxiv.org/abs/2509.18962" target="_blank" rel="noopener noreferrer">arXiv</a>
+        </div>
+      </article>
+
+      <article class="publication">
+        <p class="publication-title">
+          Transparent and Adaptive Pruning of Hoeffding Trees
+        </p>
+        <p class="publication-authors">
+          Kevin Händler, Kirsten Köbschall, Mattia Cerrato, Stefan Kramer
+        </p>
+        <p class="publication-venue">
+          Communications in Computer and Information Science, Springer Nature Switzerland, 2026.
+        </p>
+      </article>
+    </section>
+
+    <section>
+      <h2>2025</h2>
+
+      <article class="publication">
+        <p class="publication-title">
+          Adaptive differentiable trees for transparent learning on data streams
+        </p>
+        <p class="publication-authors">
+          Kirsten Köbschall, Lisa Hartung, Stefan Kramer
+        </p>
+        <p class="publication-venue">
+          Machine Learning, 114, article 253, 2025.
+        </p>
+        <div class="publication-links">
+          <a href="https://link.springer.com/article/10.1007/s10994-025-06906-x" target="_blank" rel="noopener noreferrer">Publisher</a>
+        </div>
+      </article>
+
+      <article class="publication">
+        <p class="publication-title">
+          Soft Hoeffding Tree: A Transparent and Differentiable Model on Data Streams
+        </p>
+        <p class="publication-authors">
+          Kirsten Köbschall, Lisa Hartung, Stefan Kramer
+        </p>
+        <p class="publication-venue">
+          Discovery Science, pp. 167–182, Springer, 2025.
+        </p>
+        <div class="publication-links">
+          <a href="https://arxiv.org/abs/2411.04812" target="_blank" rel="noopener noreferrer">arXiv</a>
+        </div>
+      </article>
+    </section>
+
+    <footer>
+      <div class="footer-links">
+        <a href="https://github.com/kirstenml" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/github.svg" alt="GitHub" />
+        </a>
+
+        <a href="https://scholar.google.com/citations?hl=de&user=6KMESOwAAAAJ" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/googlescholar.svg" alt="Google Scholar" />
+        </a>
+
+        <a href="https://www.linkedin.com/in/kirsten-k%C3%B6bschall-709839232/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/linkedin.svg" alt="LinkedIn" />
+        </a>
+
+        <a href="mailto:koebschall@uni-mainz.de" aria-label="Email">
+          <span class="email-icon">✉</span>
+        </a>
+      </div>
+
+      <p>© 2026 Kirsten Köbschall</p>
+    </footer>
+  </main>
+</body>
+</html>
